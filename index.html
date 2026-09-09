@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yunus Omotosho Jamiu — Data Analyst &amp; Internal Audit</title>
+<meta name="description" content="Yunus Omotosho Jamiu — Data Analyst and Internal Auditor. Excel, SQL, Power BI, Tableau, internal controls and compliance.">
+<style>
+  :root{
+    --paper:#faf9f6;
+    --paper-dim:#f1efe9;
+    --ink:#14213d;
+    --ink-soft:#4a5468;
+    --rule:#d9d4c7;
+    --brass:#9c7a2e;
+    --brass-deep:#7a5f22;
+    --verify:#2f6f4e;
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(250,249,246,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .headbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .mark{
+    font-family:var(--serif);font-weight:600;font-size:1.15rem;
+    letter-spacing:0.02em;
+  }
+  .mark span{color:var(--brass);}
+  nav{display:flex;gap:28px;align-items:center;}
+  nav a{
+    text-decoration:none;color:var(--ink-soft);font-size:0.92rem;
+    padding-bottom:2px;border-bottom:1px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  nav a:hover{color:var(--ink);border-color:var(--brass);}
+  .cv-btn{
+    display:inline-block;
+    font-size:0.88rem;
+    padding:8px 16px;
+    border:1px solid var(--ink);
+    text-decoration:none;color:var(--ink);
+    transition:background .15s ease,color .15s ease;
+  }
+  .cv-btn:hover{background:var(--ink);color:var(--paper);}
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;border-bottom:1px solid var(--rule);}
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-size:0.85rem;color:var(--verify);margin-bottom:22px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--verify);display:inline-block;}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.4rem, 5.4vw, 3.6rem);
+    line-height:1.08;
+    margin:0 0 18px;
+    max-width:12ch;
+  }
+  .hero .role{
+    font-size:1.15rem;color:var(--ink-soft);margin:0 0 28px;max-width:52ch;
+    line-height:1.55;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+  .btn-primary{
+    background:var(--ink);color:var(--paper);text-decoration:none;
+    padding:12px 22px;font-size:0.94rem;border:1px solid var(--ink);
+    transition:opacity .15s ease;
+  }
+  .btn-primary:hover{opacity:0.85;}
+  .btn-secondary{
+    text-decoration:none;color:var(--ink);padding:12px 22px;
+    font-size:0.94rem;border:1px solid var(--rule);
+    transition:border-color .15s ease;
+  }
+  .btn-secondary:hover{border-color:var(--ink);}
+  .ledger-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--rule);
+  }
+  .ledger-stats div{padding:20px 0 0;border-left:1px solid var(--rule);padding-left:20px;}
+  .ledger-stats div:first-child{border-left:none;padding-left:0;}
+  .ledger-stats .num{
+    font-family:var(--serif);font-size:1.7rem;color:var(--ink);display:block;
+  }
+  .ledger-stats .lbl{font-size:0.82rem;color:var(--ink-soft);}
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--rule);}
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    margin-bottom:34px;gap:20px;flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:var(--serif);font-weight:600;font-size:1.65rem;margin:0;
+  }
+  .section-head .ref{font-size:0.82rem;color:var(--brass);}
+  .lede{color:var(--ink-soft);line-height:1.7;max-width:62ch;margin:0 0 30px;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;}
+  .about-grid p{line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .credentials{border-top:1px solid var(--rule);padding-top:18px;}
+  .credentials .row{display:flex;justify-content:space-between;padding:9px 0;font-size:0.92rem;border-bottom:1px dashed var(--rule);}
+  .credentials .row span:first-child{color:var(--ink-soft);}
+  .credentials .row span:last-child{text-align:right;}
+
+  /* ---------- experience timeline ---------- */
+  .tl-item{
+    display:grid;grid-template-columns:150px 1fr;gap:24px;
+    padding:26px 0;border-top:1px solid var(--rule);
+  }
+  .tl-item:first-child{border-top:none;}
+  .tl-date{color:var(--brass-deep);font-size:0.88rem;padding-top:2px;}
+  .tl-role{font-family:var(--serif);font-size:1.15rem;margin:0 0 3px;}
+  .tl-org{color:var(--ink-soft);font-size:0.92rem;margin:0 0 14px;}
+  .tl-item ul{margin:0;padding-left:18px;color:var(--ink-soft);line-height:1.65;font-size:0.95rem;}
+  .tl-item li{margin-bottom:6px;}
+
+  /* ---------- skills ---------- */
+  .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+  .skill-group{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:24px;}
+  .skill-group h3{
+    font-size:0.78rem;color:var(--brass-deep);margin:0 0 14px;
+    font-weight:600;
+  }
+  .skill-group ul{list-style:none;margin:0;padding:0;}
+  .skill-group li{
+    padding:7px 0;border-top:1px dashed var(--rule);font-size:0.95rem;
+  }
+  .skill-group li:first-child{border-top:none;}
+
+  /* ---------- achievements ---------- */
+  .achieve-list{list-style:none;margin:0;padding:0;counter-reset:ach;}
+  .achieve-list li{
+    counter-increment:ach;
+    display:grid;grid-template-columns:36px 1fr;gap:16px;
+    padding:16px 0;border-top:1px solid var(--rule);
+    color:var(--ink-soft);line-height:1.6;
+  }
+  .achieve-list li:first-child{border-top:none;}
+  .achieve-list li::before{
+    content: counter(ach, decimal-leading-zero);
+    font-family:var(--serif);color:var(--brass);font-size:0.95rem;
+  }
+
+  /* ---------- projects ---------- */
+  .proj-note{
+    background:var(--paper-dim);border:1px solid var(--rule);
+    padding:16px 20px;font-size:0.9rem;color:var(--ink-soft);
+    margin-bottom:30px;line-height:1.6;
+  }
+  .proj-note a{color:var(--brass-deep);}
+  .proj-list{display:flex;flex-direction:column;}
+  .proj-row{
+    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;
+    padding:22px 0;border-top:1px solid var(--rule);
+  }
+  .proj-row:first-child{border-top:none;}
+  .proj-row h3{font-family:var(--serif);font-size:1.1rem;margin:0 0 6px;font-weight:600;}
+  .proj-row p{margin:0 0 10px;color:var(--ink-soft);font-size:0.93rem;line-height:1.6;max-width:56ch;}
+  .tag-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{font-size:0.76rem;color:var(--ink-soft);border:1px solid var(--rule);padding:3px 9px;}
+  .proj-link{font-size:0.88rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--brass);white-space:nowrap;}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .contact-grid h2{font-family:var(--serif);font-size:1.8rem;margin:0 0 16px;max-width:14ch;}
+  .contact-grid > div:first-child p{color:var(--ink-soft);line-height:1.7;max-width:44ch;}
+  .contact-list{list-style:none;margin:26px 0 0;padding:0;}
+  .contact-list li{
+    border-top:1px solid var(--rule);padding:14px 0;
+    display:flex;justify-content:space-between;font-size:0.94rem;
+  }
+  .contact-list li span:first-child{color:var(--ink-soft);}
+  .contact-list li a{text-decoration:none;border-bottom:1px solid var(--brass);}
+
+  footer{padding:28px 0;text-align:center;font-size:0.82rem;color:var(--ink-soft);}
+
+  @media (max-width:760px){
+    nav, .nav-toggle-space{display:none;}
+    .about-grid, .contact-grid{grid-template-columns:1fr;gap:28px;}
+    .skill-groups{grid-template-columns:1fr;}
+    .ledger-stats{grid-template-columns:1fr;}
+    .ledger-stats div{border-left:none;border-top:1px solid var(--rule);padding:16px 0 0;}
+    .ledger-stats div:first-child{border-top:none;}
+    .tl-item{grid-template-columns:1fr;gap:6px;}
+    .proj-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <div class="mark">Y. Omotosho Jamiu<span>.</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cv-btn" href="Data_Analysis_CV.pdf" download>Download CV</a>
+  </div>
+</header>
+
+<section class="hero wrap" style="border-bottom:none;padding-bottom:0;">
+  <div class="eyebrow"><span class="dot"></span> Available for data & audit roles</div>
+  <h1>Yunus Omotosho Jamiu</h1>
+  <p class="role">Data Analyst and Internal Auditor turning financial records, transactions and operational data into clear, risk‑aware reporting — grounded in Excel, SQL, Power BI and Tableau.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#projects">See my work</a>
+    <a class="btn-secondary" href="#contact">Get in touch</a>
+  </div>
+  <div class="ledger-stats">
+    <div><span class="num">Jan 2025</span><span class="lbl">Internal Auditor at AG Leventis, Lagos</span></div>
+    <div><span class="num">ALX 2025</span><span class="lbl">Certified in Data Analysis</span></div>
+    <div><span class="num">4</span><span class="lbl">Core tools — Excel, SQL, Power BI, Tableau</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><h2>About</h2><span class="ref">01</span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a detail-oriented Data Analyst with a background in internal audit, based in Lagos, Nigeria. I work at the intersection of two disciplines that both come down to the same question — <em>does the data hold up?</em> Auditing trains me to trace a number back to its source and question what doesn't reconcile; data analysis gives me the tools to turn that scrutiny into dashboards, trend reports and recommendations that hold up under review.</p>
+        <p>Day to day, that means cleaning and validating datasets, building reports in Excel and Power BI, writing SQL to pull and reconcile records, and translating findings into plain-language reports for management — whether the audience is an audit committee or a business team trying to understand what changed and why.</p>
+      </div>
+      <div class="credentials">
+        <div class="row"><span>Based in</span><span>Lagos, Nigeria</span></div>
+        <div class="row"><span>Current role</span><span>Internal Auditor (Junior), AG Leventis</span></div>
+        <div class="row"><span>Education</span><span>BSc Library &amp; Information Science, Univ. of Ilorin — 2024</span></div>
+        <div class="row"><span>Certification</span><span>Data Analysis, ALX — 2025</span></div>
+        <div class="row"><span>Core tools</span><span>Excel · SQL · Power BI · Tableau</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><h2>Experience</h2><span class="ref">02</span></div>
+
+    <div class="tl-item">
+      <div class="tl-date">Jan 2025 — Present</div>
+      <div>
+        <h3 class="tl-role">Internal Auditor (Junior)</h3>
+        <p class="tl-org">AG Leventis, Apapa, Lagos</p>
+        <ul>
+          <li>Assist in internal audit engagements, including planning, fieldwork and documentation.</li>
+          <li>Review financial records, transactions and operational procedures for accuracy, integrity and regulatory compliance.</li>
+          <li>Conduct risk-based audits evaluating internal controls, governance processes and policy compliance.</li>
+          <li>Identify control weaknesses, process gaps and potential fraud risks, with practical recommendations for improvement.</li>
+          <li>Prepare audit reports detailing findings, risk ratings and corrective action plans for management review.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Jun 2023 — Nov 2023</div>
+      <div>
+        <h3 class="tl-role">IT Specialist</h3>
+        <p class="tl-org">University of Ilorin Library, Ilorin, Kwara State</p>
+        <ul>
+          <li>Installed, configured and maintained library management systems (LMS) and digital repositories.</li>
+          <li>Managed user access, system updates and basic database administration for academic platforms.</li>
+          <li>Collaborated with librarians to digitise information resources and improve access to electronic databases.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><h2>Skills</h2><span class="ref">03</span></div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Data analysis</h3>
+        <ul>
+          <li>Microsoft Excel — Pivot Tables, VLOOKUP, Advanced Functions</li>
+          <li>SQL</li>
+          <li>Data cleaning, validation &amp; quality assurance</li>
+          <li>Trend analysis &amp; performance tracking</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Visualization &amp; reporting</h3>
+        <ul>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Dashboard development</li>
+          <li>Microsoft Word &amp; PowerPoint reporting</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Audit &amp; controls</h3>
+        <ul>
+          <li>Internal controls &amp; compliance</li>
+          <li>Risk-based audit planning</li>
+          <li>Record management</li>
+          <li>ERP systems — Microsoft Dynamics</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Systems</h3>
+        <ul>
+          <li>KOHA &amp; DSpace digital repositories</li>
+          <li>Database administration basics</li>
+          <li>Digital literacy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-head"><h2>Key achievements</h2><span class="ref">04</span></div>
+    <ul class="achieve-list">
+      <li>Improved audit documentation and working papers, enhancing audit efficiency and regulatory compliance.</li>
+      <li>Detected financial discrepancies and process inefficiencies, contributing to cost savings and improved compliance.</li>
+      <li>Completed multiple internal audit engagements within agreed timelines without compromising audit quality.</li>
+      <li>Identified and reported critical control weaknesses, leading to improved internal control systems and reduced operational risk.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><h2>Projects</h2><span class="ref">05</span></div>
+    <div class="proj-note">
+      The three entries below are placeholders — swap in your real project titles, one-line descriptions and links. Your full case studies already live on your <a href="https://www.datascienceportfol.io/yunusomotosho12345" target="_blank" rel="noopener">datascienceportfol.io</a> page — that link is in the row above the placeholders and in the contact section.
+    </div>
+    <div class="proj-list">
+      <div class="proj-row">
+        <div>
+          <h3>Full project portfolio</h3>
+          <p>Case studies and write-ups of my data analysis work, hosted on datascienceportfol.io.</p>
+          <div class="tag-row"><span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+        </div>
+        <a class="proj-link" href="https://www.datascienceportfol.io/yunusomotosho12345" target="_blank" rel="noopener">View portfolio</a>
+      </div>
+      <div class="proj-row">
+        <div>
+          <h3>[Add: audit findings tracker]</h3>
+          <p>Replace with a short description — e.g. a Power BI or Excel tracker for audit findings, risk ratings and remediation status.</p>
+          <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Excel</span></div>
+        </div>
+        <a class="proj-link" href="#">Add link</a>
+      </div>
+      <div class="proj-row">
+        <div>
+          <h3>[Add: reconciliation / SQL project]</h3>
+          <p>Replace with a short description — e.g. an SQL query set used to reconcile transaction records or flag anomalies.</p>
+          <div class="tag-row"><span class="tag">SQL</span><span class="tag">Data validation</span></div>
+        </div>
+        <a class="proj-link" href="#">Add link</a>
+      </div>
+      <div class="proj-row">
+        <div>
+          <h3>[Add: dashboard project]</h3>
+          <p>Replace with a short description — e.g. a Tableau or Power BI dashboard built for trend or performance tracking.</p>
+          <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Reporting</span></div>
+        </div>
+        <a class="proj-link" href="#">Add link</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's work together</h2>
+        <p>Open to data analyst, internal audit and BI roles. Reach out directly, or download my CV for the full picture.</p>
+        <div style="margin-top:24px;">
+          <a class="btn-primary" href="Data_Analysis_CV.pdf" download>Download CV (PDF)</a>
+        </div>
+      </div>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:yunusomotosho12345@gmail.com">yunusomotosho12345@gmail.com</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/yunus-jamiu/" target="_blank" rel="noopener">in/yunus-jamiu</a></li>
+        <li><span>Portfolio</span><a href="https://www.datascienceportfol.io/yunusomotosho12345" target="_blank" rel="noopener">datascienceportfol.io</a></li>
+        <li><span>Location</span><span>Lagos, Nigeria</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Yunus Omotosho Jamiu · Data Analyst &amp; Internal Auditor · Lagos, Nigeria</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
